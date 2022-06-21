@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
 import { SelectComponent } from './select/select.component';
 import {MatRippleModule} from "@angular/material/core";
-
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     ButtonComponent,
-    SelectComponent
+    SelectComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +21,9 @@ import {MatRippleModule} from "@angular/material/core";
   ],
   exports: [
     ButtonComponent,
-    SelectComponent
+    SelectComponent,
+    HeaderComponent,
+    FooterComponent,
   ]
 })
 export class UiModule { }
