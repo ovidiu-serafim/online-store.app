@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  img: string;
+}
+
 @Component({
   selector: 'app-quick-cart',
   templateUrl: './quick-cart.component.html',
   styleUrls: ['./quick-cart.component.scss']
 })
 export class QuickCartComponent implements OnInit {
-  products: any[] = [];
+  products: Product[] = [];
 
   constructor() { }
 
@@ -29,7 +36,12 @@ export class QuickCartComponent implements OnInit {
         price: 100,
         quantity: 3,
         img: 'assets/images/products/smartwatch.webp'
-      }
+      },
     );
+  }
+
+  getTotal(): number {
+    return this.products.map(product => product.price)
+      .reduce((totalPrice, price) => totalPrice + price, 0);
   }
 }
