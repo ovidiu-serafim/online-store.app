@@ -12,9 +12,9 @@
               <img src="{{ product.img }}" width="90" height="90" alt="">
             </div>
             <div class="quick-cart__product">
-                <div class="quick-cart__name"><a href="#">{{ product.name }}</a></div>
-                <div class="quick-cart__quantity">Quantity: {{ product.quantity }}</div>
-                <div class="quick-cart__price">{{ product.price }} RON</div>
+                <div class="quick-cart__product-name"><a href="#">{{ product.name }}</a></div>
+                <div class="quick-cart__product-price">{{ product.price }} RON</div>
+                <app-cart-quantity [quantity]="product.quantity"></app-cart-quantity>
             </div>
             <div class="quick-cart__product-remove-button">
               <button type="button"><i class="fa-solid fa-circle-xmark hover:bg-primary rounded-full"></i></button>

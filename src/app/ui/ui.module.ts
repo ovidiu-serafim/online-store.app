@@ -6,6 +6,8 @@ import {MatRippleModule} from "@angular/material/core";
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {QuickCartComponent} from './quick-cart/quick-cart.component';
+import { CartQuantityComponent } from './cart-quantity/cart-quantity.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -13,13 +15,15 @@ import {QuickCartComponent} from './quick-cart/quick-cart.component';
     SelectComponent,
     HeaderComponent,
     FooterComponent,
-    QuickCartComponent
+    QuickCartComponent,
+    CartQuantityComponent
   ],
   imports: [
     CommonModule,
 
     // Angular Material
     MatRippleModule,
+    RouterModule,
   ],
   exports: [
     ButtonComponent,
@@ -27,6 +31,7 @@ import {QuickCartComponent} from './quick-cart/quick-cart.component';
     HeaderComponent,
     FooterComponent,
     QuickCartComponent,
+    CartQuantityComponent,
   ]
 })
 export class UiModule {
