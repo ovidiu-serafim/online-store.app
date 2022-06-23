@@ -1,9 +1,11 @@
 import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {MatRippleModule} from "@angular/material/core";
-import {CoreModule} from "./core/core.module";
-import {AppRoutingModule} from "./app-routing.module";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UiModule} from "./ui/ui.module";
+import {MatRippleModule} from "@angular/material/core";
 import {PagesModule} from "./pages/pages.module";
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
@@ -16,16 +18,21 @@ import {DataService} from "./shared/services/data.service";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {UrlInterceptor} from "./shared/interceptors/url.interceptor";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {DialogContentExampleDialog} from "./ui/product-card/product-card.component";
+import { MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogContentExampleDialog
   ],
   imports: [
-    CoreModule,
-    PagesModule,
-    UiModule,
+    BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    UiModule,
+    PagesModule,
 
     // NgRx
     StoreModule.forRoot(reducers, {
@@ -44,12 +51,14 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
     HttpClientInMemoryWebApiModule.forRoot(DataService),
 
     // Angular Material
-    MatRippleModule
+    MatRippleModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DialogContentExampleDialog]
 })
 export class AppModule {
 }
