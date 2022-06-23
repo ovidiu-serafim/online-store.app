@@ -21,6 +21,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {DialogContentExampleDialog} from "./ui/product-card/product-card.component";
 import { MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatButtonModule} from "@angular/material/button";
     DialogContentExampleDialog
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
