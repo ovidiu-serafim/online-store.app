@@ -5,16 +5,19 @@ import {PagesRoutingModule} from "./pages.routing-module";
 import {ProductCardComponent} from "../ui/product-card/product-card.component";
 import {UiModule} from "../ui/ui.module";
 import {MatButtonModule} from "@angular/material/button";
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CartComponent
   ],
   exports: [
     HomeComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CartComponent
   ],
     imports: [
         CommonModule,

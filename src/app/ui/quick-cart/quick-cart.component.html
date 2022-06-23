@@ -1,0 +1,46 @@
+<div class="quick-cart">
+    <div class="quick-cart__header">
+      <div class="quick-cart__header-title">Shopping cart</div>
+      <button type="button" class="quick-cart__header-close-button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  <div class="quick-cart__content">
+    <div *ngIf="products.length; else noProducts">
+      <div class="space-y-4">
+        <div *ngFor="let product of products">
+          <div class="flex">
+            <div class="flex-none">
+              <img src="{{ product.img }}" width="90" height="90" alt="">
+            </div>
+            <div class="quick-cart__product">
+                <div class="quick-cart__product-name"><a href="#">{{ product.name }}</a></div>
+                <div class="quick-cart__product-price">{{ product.price }} RON</div>
+                <app-cart-quantity [quantity]="product.quantity"></app-cart-quantity>
+            </div>
+            <div class="quick-cart__product-remove-button">
+              <button type="button"><i class="fa-solid fa-circle-xmark hover:bg-primary rounded-full"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="quick-cart__footer">
+    <div class="quick-cart__footer-subtotal">
+      <span>Subtotal</span>
+      <span>{{ getTotal() }} ron</span>
+    </div>
+    <div>
+      Shipping, taxes, and discounts will be calculated at checkout.
+    </div>
+  </div>
+  <div class="quick-cart__footer-actions">
+    <button type="button" class="quick-cart__footer-viewcart-button">View Cart</button>
+    <button type="button" class="quick-cart__footer-checkout-button">Check Out</button>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <div class="quick-cart__no-products">
+    Your cart is currently empty.
+  </div>
+</ng-template>

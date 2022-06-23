@@ -1,0 +1,49 @@
+.quick-cart {
+  @apply flex flex-col h-full mx-5;
+
+  &__header {
+    @apply flex border-b-2 border-gray-400 my-2 p-3;
+  }
+  &__header-title {
+    @apply flex-1 text-secondary uppercase font-bold;
+  }
+  &__header-close-button {
+    @apply hover:text-primary;
+  }
+  &__content {
+    @apply flex-1 overflow-scroll;
+  }
+  &__product {
+    @apply flex flex-col text-secondary flex-1 ml-2 mt-1 space-y-1;
+  }
+  &__product-name {
+    @apply text-primary-dark;
+  }
+  &__product-quantity {
+    @apply flex-1 text-xs;
+  }
+  &__product-price {
+    @apply font-bold text-base;
+  }
+  &__product-remove-button {
+    @apply content-end mr-4;
+  }
+  &__no-products {
+    @apply p-5 text-secondary text-center;
+  }
+  &__footer {
+    @apply text-secondary mb-8 mt-5 space-y-8;
+  }
+  &__footer-subtotal {
+    @apply flex justify-between font-bold uppercase;
+  }
+  &__footer-actions {
+    @apply flex flex-col mb-8 space-y-3;
+  }
+  &__footer-viewcart-button {
+    @apply text-secondary-dark hover:bg-primary hover:text-white p-2 rounded-sm bg-transparent border border-primary;
+  }
+  &__footer-checkout-button {
+    @apply bg-primary text-white hover:bg-secondary p-2 rounded-sm;
+  }
+}
