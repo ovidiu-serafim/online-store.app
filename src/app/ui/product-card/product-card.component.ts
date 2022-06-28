@@ -7,7 +7,7 @@ import {QuickViewComponent} from "../quick-view/quick-view.component";
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent {
 
   constructor(public dialog: MatDialog) {}
 

@@ -24,6 +24,7 @@ import {CoreModule} from "./core/core.module";
 import { QuickViewComponent } from "./ui/quick-view/quick-view.component";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { SizeSelectorComponent } from './ui/size-selector/size-selector.component';
+import {ProductEffects} from "./redux/product/product.effects";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SizeSelectorComponent } from './ui/size-selector/size-selector.componen
             logOnly: environment.production
         }),
         EffectsModule.forRoot([
-            AuthEffects
+            AuthEffects,
+            ProductEffects
         ]),
         StoreRouterConnectingModule.forRoot(),
 

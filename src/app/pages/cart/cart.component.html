@@ -20,7 +20,7 @@
                 </div>
                 <div class="flex gap-2">
                   <app-cart-quantity [quantity]="product.quantity"></app-cart-quantity>
-                  <button type="button" class="text-xs uppercase text-secondary underline hover:no-underline">Update card</button>
+                  <button type="button" class="text-xs uppercase text-secondary underline hover:no-underline">Update cart</button>
                   <button type="button" class="text-xs uppercase text-primary underline hover:no-underline">Remove</button>
                 </div>
             </div>
@@ -33,10 +33,10 @@
   <div class="flex justify-between mt-10 p-5 border-2 border-primary bg-gray-200">
     <div>
       <button type="button" class="text-primary-dark text-xs uppercase bg-gray-50 hover:bg-primary hover:text-white p-3 rounded-sm bg-transparent border border-primary" (click)="setOrderNote()">
-        Add order note
+        <i class="fa-solid fa-note-sticky"></i> Add order note
       </button>
-      <div *ngIf="isActiveOrderNote" class="mt-3">
-        <textarea rows="4" cols="65"></textarea>
+      <div [ngClass]="{'opacity-0 h-0 translate-y-10': !isActiveOrderNote, 'opacity-100 h-full': isActiveOrderNote}" class="mt-3 transition-all duration-300 transform overflow-hidden">
+        <textarea class="outline-none rounded" rows="4" cols="65"></textarea>
       </div>
     </div>
     <div>
@@ -48,10 +48,6 @@
       </div>
     </div>
   </div>
-<!--  <div class="flex justify-between mt-10">-->
-<!--    <div>Hello</div>-->
-<!--    <div>Subtotal</div>-->
-<!--  </div>-->
 </div>
 <ng-template #noProducts>
   <div class="quick-cart__no-products">
