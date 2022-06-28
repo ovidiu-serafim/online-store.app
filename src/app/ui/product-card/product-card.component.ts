@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
+import { MatDialog } from "@angular/material/dialog";
+import {QuickViewComponent} from "../quick-view/quick-view.component";
 
 @Component({
   selector: 'app-product-card',
@@ -10,20 +11,11 @@ export class ProductCardComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  openDialog(){
+    this.dialog.open(QuickViewComponent);
   }
+
   ngOnInit(): void {
   }
 
 }
-
-@Component({
-  selector: 'dialog-content-example',
-  templateUrl: 'dialog-content-example.html',
-})
-export class DialogContentExampleDialog {}

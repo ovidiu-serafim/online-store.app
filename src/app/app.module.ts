@@ -18,49 +18,53 @@ import {DataService} from "./shared/services/data.service";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {UrlInterceptor} from "./shared/interceptors/url.interceptor";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {DialogContentExampleDialog} from "./ui/product-card/product-card.component";
-import { MatDialogModule} from "@angular/material/dialog";
+import { MatDialogModule } from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {CoreModule} from "./core/core.module";
+import { QuickViewComponent } from "./ui/quick-view/quick-view.component";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { SizeSelectorComponent } from './ui/size-selector/size-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogContentExampleDialog
+    QuickViewComponent,
+    SizeSelectorComponent
   ],
-  imports: [
-    CoreModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    UiModule,
-    PagesModule,
+    imports: [
+        CoreModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        UiModule,
+        PagesModule,
 
-    // NgRx
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    }),
-    EffectsModule.forRoot([
-      AuthEffects
-    ]),
-    StoreRouterConnectingModule.forRoot(),
+        // NgRx
+        StoreModule.forRoot(reducers, {
+            metaReducers
+        }),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production
+        }),
+        EffectsModule.forRoot([
+            AuthEffects
+        ]),
+        StoreRouterConnectingModule.forRoot(),
 
-    // Data mock
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
+        // Data mock
+        HttpClientInMemoryWebApiModule.forRoot(DataService),
 
-    // Angular Material
-    MatRippleModule,
-    MatDialogModule,
-    MatButtonModule
-  ],
+        // Angular Material
+        MatRippleModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatButtonToggleModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent, DialogContentExampleDialog]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
