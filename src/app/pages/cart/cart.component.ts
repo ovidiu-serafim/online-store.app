@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from "@ngrx/store";
+import {ProductState} from "../../redux/product/product.reducer";
+import * as ProductSelectors from '../../redux/product/product.selectors';
+import * as ProductActions from '../../redux/product/product.actions';
 
 interface Product {
   name: string;
@@ -16,29 +20,11 @@ export class CartComponent implements OnInit {
   products: Product[] = [];
   isActiveOrderNote: boolean = false;
 
-  constructor() { }
+  constructor(private store: Store<ProductState>) {}
 
   ngOnInit(): void {
-    this.products.push(
-      {
-        name: 'Backpack',
-        price: 50,
-        quantity: 5,
-        img: 'assets/images/products/amcrest-backpack.webp'
-      },
-      {
-        name: 'Smartphone',
-        price: 250,
-        quantity: 1,
-        img: 'assets/images/products/smartphone.webp'
-      },
-      {
-        name: 'Smart watch',
-        price: 100,
-        quantity: 3,
-        img: 'assets/images/products/smartwatch.webp'
-      }
-    );
+    this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
+    this.store.dispatch(ProductActions.requestList());
   }
 
   getTotal(): number {
