@@ -15,6 +15,10 @@ export class CartQuantityComponent {
   }
 
   decrementQuantity(): void {
-    this.quantity -= 1;
+    if(this.quantity > 0){
+      this.quantity -= 1;
+    } else {
+      this.quantity = 0;
+    }
   }
 }
