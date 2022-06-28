@@ -22,6 +22,7 @@ import {DialogContentExampleDialog} from "./ui/product-card/product-card.compone
 import { MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {CoreModule} from "./core/core.module";
+import {ProductEffects} from "./redux/product/product.effects";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {CoreModule} from "./core/core.module";
       logOnly: environment.production
     }),
     EffectsModule.forRoot([
-      AuthEffects
+      AuthEffects,
+      ProductEffects
     ]),
     StoreRouterConnectingModule.forRoot(),
 

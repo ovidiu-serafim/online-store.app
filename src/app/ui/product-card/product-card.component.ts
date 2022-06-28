@@ -6,7 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent {
 
   constructor(public dialog: MatDialog) {}
 
@@ -17,9 +17,6 @@ export class ProductCardComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  ngOnInit(): void {
-  }
-
 }
 
 @Component({
