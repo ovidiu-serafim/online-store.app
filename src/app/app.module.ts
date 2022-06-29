@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,13 +18,12 @@ import {DataService} from "./shared/services/data.service";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {UrlInterceptor} from "./shared/interceptors/url.interceptor";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import { MatDialogModule } from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {CoreModule} from "./core/core.module";
 import { QuickViewComponent } from "./ui/quick-view/quick-view.component";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { SizeSelectorComponent } from './ui/size-selector/size-selector.component';
-import {ProductEffects} from "./redux/product/product.effects";
+
 
 @NgModule({
   declarations: [
@@ -48,8 +48,7 @@ import {ProductEffects} from "./redux/product/product.effects";
             logOnly: environment.production
         }),
         EffectsModule.forRoot([
-            AuthEffects,
-            ProductEffects
+            AuthEffects
         ]),
         StoreRouterConnectingModule.forRoot(),
 
@@ -58,7 +57,6 @@ import {ProductEffects} from "./redux/product/product.effects";
 
         // Angular Material
         MatRippleModule,
-        MatDialogModule,
         MatButtonModule,
         MatButtonToggleModule
     ],
@@ -67,4 +65,5 @@ import {ProductEffects} from "./redux/product/product.effects";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
