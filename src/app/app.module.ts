@@ -25,6 +25,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { SizeSelectorComponent } from './ui/size-selector/size-selector.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
