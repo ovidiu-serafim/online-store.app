@@ -8,6 +8,9 @@ import {FooterComponent} from './footer/footer.component';
 import {QuickCartComponent} from './quick-cart/quick-cart.component';
 import { CartQuantityComponent } from './cart-quantity/cart-quantity.component';
 import {RouterModule} from "@angular/router";
+import { SearchProductResultComponent } from "./search-product-result/search-product-result.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { SearchModalComponent } from "./search-modal/search-modal.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import {RouterModule} from "@angular/router";
     HeaderComponent,
     FooterComponent,
     QuickCartComponent,
-    CartQuantityComponent
+    CartQuantityComponent,
+    SearchProductResultComponent,
+    SearchModalComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +29,7 @@ import {RouterModule} from "@angular/router";
     // Angular Material
     MatRippleModule,
     RouterModule,
+    MatDialogModule
   ],
   exports: [
     ButtonComponent,
@@ -32,6 +38,8 @@ import {RouterModule} from "@angular/router";
     FooterComponent,
     QuickCartComponent,
     CartQuantityComponent,
+    SearchProductResultComponent,
+    SearchModalComponent
   ]
 })
 export class UiModule {

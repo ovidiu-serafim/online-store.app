@@ -3,13 +3,7 @@ import {Store} from "@ngrx/store";
 import {ProductState} from "../../redux/product/product.reducer";
 import * as ProductSelectors from '../../redux/product/product.selectors';
 import * as ProductActions from '../../redux/product/product.actions';
-
-interface Product {
-  name: string;
-  price: number;
-  quantity: number;
-  img: string;
-}
+import { Product } from "../../shared/models/product";
 
 @Component({
   selector: 'app-cart',
@@ -23,8 +17,8 @@ export class CartComponent implements OnInit {
   constructor(private store: Store<ProductState>) {}
 
   ngOnInit(): void {
-    this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
     this.store.dispatch(ProductActions.requestList());
+    this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
   }
 
   getTotal(): number {
