@@ -1,0 +1,13 @@
+<div *ngFor="let product of products">
+  <a href="#" class="flex flex-col items-center bg-white mb-5 rounded-lg md:flex-row">
+    <img class="object-cover w-full h-96 rounded md:h-auto md:w-48 md:rounded-l-lg" src="{{ product.img }}" alt="">
+    <div class="flex flex-col justify-between p-4 leading-normal">
+      <h3 class="mt-4 text-sm text-gray-700">{{ product.name}}</h3>
+      <p>{{ product.price }} RON</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">This is a description of a product... This is a description of a product... </p>
+    </div>
+  </a>
+  <hr class="mb-5">
+</div>
+
+

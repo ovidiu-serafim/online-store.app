@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {SearchModalComponent} from "../../ui/search-modal/search-modal.component";
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openDialog(){
+    this.dialog.open(SearchModalComponent, {
+      height: '90%',
+      width: '90%',
+    });
+  }
 
 }
