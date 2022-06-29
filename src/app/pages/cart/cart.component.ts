@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ProductState} from "../../redux/product/product.reducer";
-import * as ProductSelectors from '../../redux/product/product.selectors';
-import * as ProductActions from '../../redux/product/product.actions';
 import { Product } from "../../shared/models/product";
+import * as CartSelectors from '../../redux/cart/cart.selectors';
 
 @Component({
   selector: 'app-cart',
@@ -11,14 +10,15 @@ import { Product } from "../../shared/models/product";
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  products: Product[] = [];
+  products!: Product[];
   isActiveOrderNote: boolean = false;
 
   constructor(private store: Store<ProductState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(ProductActions.requestList());
-    this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
+    // this.store.dispatch(ProductActions.requestList());
+    // this.store.select(ProductSelectors.getProducts).subscribe(products => this.products = products);
+    this.store.select(CartSelectors.getCartProducts).subscribe( products => this.products = products);
   }
 
   getTotal(): number {

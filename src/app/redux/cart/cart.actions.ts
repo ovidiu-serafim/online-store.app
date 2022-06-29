@@ -1,10 +1,8 @@
 import {createAction, props} from "@ngrx/store";
 import { CartActionTypes } from "./cart.action-types";
-import {Product} from "../../shared/models/product";
 
 export const retrieveProductList = createAction(
-  CartActionTypes.RETRIEVE_PRODUCT_LIST,
-  props<{ products: Product[] }>()
+  CartActionTypes.RETRIEVE_PRODUCT_LIST
 );
 
 export const addProduct = createAction(

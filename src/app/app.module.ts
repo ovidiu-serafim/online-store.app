@@ -24,8 +24,6 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { SizeSelectorComponent } from './ui/size-selector/size-selector.component';
 import {ProductEffects} from "./redux/product/product.effects";
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
