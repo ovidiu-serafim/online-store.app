@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,6 +22,7 @@ import {CoreModule} from "./core/core.module";
 import { QuickViewComponent } from "./ui/quick-view/quick-view.component";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { SizeSelectorComponent } from './ui/size-selector/size-selector.component';
+import {ProductEffects} from "./redux/product/product.effects";
 
 
 
@@ -49,7 +49,8 @@ import { SizeSelectorComponent } from './ui/size-selector/size-selector.componen
             logOnly: environment.production
         }),
         EffectsModule.forRoot([
-            AuthEffects
+            AuthEffects,
+            ProductEffects
         ]),
         StoreRouterConnectingModule.forRoot(),
 
