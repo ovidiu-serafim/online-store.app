@@ -6,6 +6,8 @@ import { CartComponent } from './cart/cart.component';
 import {ProductCardComponent} from "../ui/product-card/product-card.component";
 import {UiModule} from "../ui/ui.module";
 import {MatButtonModule} from "@angular/material/button";
+import {AppModule} from "../app.module";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     PagesRoutingModule,
     UiModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 export class PagesModule {

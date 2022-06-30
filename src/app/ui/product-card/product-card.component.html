@@ -2,12 +2,12 @@
 
 <div *ngFor="let product of products" class="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-700">
   <a href="#">
-    <img class="rounded-t-lg w-full" src="{{ product.img}}" alt="" />
+    <img class="rounded-t-lg w-full" src="{{ product.img }}" alt="" />
   </a>
   <div class="p-5">
     <a href="#">
       <div class="flex justify-between">
-        <h3 class="mt-4 text-sm text-gray-700">{{ product.name}}</h3>
+        <h3 class="mt-4 text-sm text-gray-700">{{ product.name }}</h3>
         <p class="mt-1 text-lg font-medium text-gray-900">{{ product.price }} RON</p>
       </div>
     </a>
@@ -15,9 +15,13 @@
   </div>
   <div class="flex justify-between pt-0 pb-5 px-3">
     <app-button color="primary" icon="fa-solid fa-shopping-cart" (click)="addToCart(product)">Cart</app-button>
-    <app-button mat-raised-button (click)="openDialog()" color="secondary" icon="fa-solid fa-eye">Preview</app-button>
+    <app-button mat-raised-button (click)="openDialog(product);" color="secondary" icon="fa-solid fa-eye">Preview</app-button>
   </div>
 </div>
+<!--  ;onSelect(product)-->
+  <div *ngIf="selectedProduct">
+    <h1>{{ selectedProduct.name }}</h1>
+  </div>
 
 </div>
 

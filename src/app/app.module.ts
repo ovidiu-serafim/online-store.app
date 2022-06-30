@@ -25,11 +25,11 @@ import { SizeSelectorComponent } from './ui/size-selector/size-selector.componen
 import {ProductEffects} from "./redux/product/product.effects";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    QuickViewComponent,
-    SizeSelectorComponent
-  ],
+    declarations: [
+        AppComponent,
+        QuickViewComponent,
+        SizeSelectorComponent
+    ],
     imports: [
         CoreModule,
         BrowserModule,
@@ -60,10 +60,13 @@ import {ProductEffects} from "./redux/product/product.effects";
         MatButtonModule,
         MatButtonToggleModule
     ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true },
-  ],
-  bootstrap: [AppComponent]
+    providers: [
+        {provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true},
+    ],
+    exports: [
+        QuickViewComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

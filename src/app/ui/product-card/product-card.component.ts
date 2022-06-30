@@ -8,6 +8,7 @@ import * as ProductActions from "../../redux/product/product.actions";
 import * as ProductSelectors from "../../redux/product/product.selectors";
 import * as CartActions from "../../redux/cart/cart.actions";
 
+
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -16,6 +17,7 @@ import * as CartActions from "../../redux/cart/cart.actions";
 export class ProductCardComponent {
 
   products: Product[] = [];
+  selectedProduct?: Product;
 
   constructor(public dialog: MatDialog,
               private store: Store<ProductState>) {}
@@ -25,7 +27,8 @@ export class ProductCardComponent {
     this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
   }
 
-  openDialog(){
+  openDialog(product: Product){
+    this.selectedProduct = product;
     this.dialog.open(QuickViewComponent);
   }
 
