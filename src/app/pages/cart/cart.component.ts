@@ -3,6 +3,7 @@ import {Store} from "@ngrx/store";
 import {ProductState} from "../../redux/product/product.reducer";
 import { Product } from "../../shared/models/product";
 import * as CartSelectors from '../../redux/cart/cart.selectors';
+import * as CartActions from '../../redux/cart/cart.actions';
 
 @Component({
   selector: 'app-cart',
@@ -16,9 +17,11 @@ export class CartComponent implements OnInit {
   constructor(private store: Store<ProductState>) {}
 
   ngOnInit(): void {
-    // this.store.dispatch(ProductActions.requestList());
-    // this.store.select(ProductSelectors.getProducts).subscribe(products => this.products = products);
     this.store.select(CartSelectors.getCartProducts).subscribe( products => this.products = products);
+  }
+
+  removeProduct(product: Product) {
+    this.store.dispatch(CartActions.removeProduct({ product }));
   }
 
   getTotal(): number {

@@ -14,7 +14,7 @@
     <p class="mb-3 text-gray-500">Caption</p>
   </div>
   <div class="flex justify-between pt-0 pb-5 px-3">
-    <app-button color="primary" icon="fa-solid fa-shopping-cart">Cart</app-button>
+    <app-button color="primary" icon="fa-solid fa-shopping-cart" (click)="addToCart(product)">Cart</app-button>
     <app-button mat-raised-button (click)="openDialog()" color="secondary" icon="fa-solid fa-eye">Preview</app-button>
   </div>
 </div>

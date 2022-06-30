@@ -6,6 +6,7 @@ import {Store} from "@ngrx/store";
 import {ProductState} from "../../redux/product/product.reducer";
 import * as ProductActions from "../../redux/product/product.actions";
 import * as ProductSelectors from "../../redux/product/product.selectors";
+import * as CartActions from "../../redux/cart/cart.actions";
 
 @Component({
   selector: 'app-product-card',
@@ -28,4 +29,8 @@ export class ProductCardComponent {
     this.dialog.open(QuickViewComponent);
   }
 
+  addToCart(product: Product) {
+    console.log({product});
+    this.store.dispatch(CartActions.addProduct({ product }));
+  }
 }
