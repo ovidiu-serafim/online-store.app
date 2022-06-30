@@ -15,6 +15,7 @@ export class HeaderComponent {
     this.dialog.open(SearchModalComponent, {
       height: '90%',
       width: '90%',
+      panelClass: 'search-modal'
     });
   }
 
