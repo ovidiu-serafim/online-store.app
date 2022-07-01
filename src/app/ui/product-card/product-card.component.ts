@@ -28,8 +28,18 @@ export class ProductCardComponent {
   }
 
   openDialog(product: Product){
-    this.selectedProduct = product;
-    this.dialog.open(QuickViewComponent);
+    const dialogRef = this.dialog.open(QuickViewComponent, {
+      data: {
+        productName: product.name,
+        productPrice: product.price,
+        productImage: product.img,
+      }
+    });
+
+    const dialogSubmitSubscription =
+      dialogRef.componentInstance.submitClicked.subscribe(result => {
+        dialogSubmitSubscription.unsubscribe();
+      });
   }
 
   addToCart(product: Product) {
