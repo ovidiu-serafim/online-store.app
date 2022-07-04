@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {QuickViewComponent} from "../quick-view/quick-view.component";
 import {Product} from "../../shared/models/product";
 import {Store} from "@ngrx/store";
@@ -14,10 +14,8 @@ import * as CartActions from "../../redux/cart/cart.actions";
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent {
-
+export class ProductCardComponent implements OnInit{
   products: Product[] = [];
-  selectedProduct?: Product;
 
   constructor(public dialog: MatDialog,
               private store: Store<ProductState>) {}
@@ -28,22 +26,13 @@ export class ProductCardComponent {
   }
 
   openDialog(product: Product){
-    const dialogRef = this.dialog.open(QuickViewComponent, {
-      data: {
-        productName: product.name,
-        productPrice: product.price,
-        productImage: product.img,
-      }
-    });
+    let config = new MatDialogConfig();
+    let dialogRef:MatDialogRef<QuickViewComponent> = this.dialog.open(QuickViewComponent, config);
+    dialogRef.componentInstance.product = product;
 
-    const dialogSubmitSubscription =
-      dialogRef.componentInstance.submitClicked.subscribe(result => {
-        dialogSubmitSubscription.unsubscribe();
-      });
   }
 
   addToCart(product: Product) {
-    console.log({product});
     this.store.dispatch(CartActions.addProduct({ product }));
   }
 }

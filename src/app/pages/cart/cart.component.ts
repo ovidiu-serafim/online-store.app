@@ -4,6 +4,7 @@ import {ProductState} from "../../redux/product/product.reducer";
 import { Product } from "../../shared/models/product";
 import * as CartSelectors from '../../redux/cart/cart.selectors';
 import * as CartActions from '../../redux/cart/cart.actions';
+import {CartState} from "../../redux/cart/cart.reducer";
 
 @Component({
   selector: 'app-cart',
@@ -14,10 +15,10 @@ export class CartComponent implements OnInit {
   products!: Product[];
   isActiveOrderNote: boolean = false;
 
-  constructor(private store: Store<ProductState>) {}
+  constructor(private store: Store<CartState>) {}
 
   ngOnInit(): void {
-    this.store.select(CartSelectors.getCartProducts).subscribe( products => this.products = products);
+    this.store.select(CartSelectors.getCartProducts).subscribe( cartState => this.products = cartState.products);
   }
 
   removeProduct(product: Product) {
