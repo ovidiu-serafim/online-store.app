@@ -27,6 +27,10 @@ export class DataService implements InMemoryDbService {
         id: '1',
         name: 'Backpack',
         price: 50,
+        caption: "This is a caption for Backpack",
+        description: "Here is the full description of the Backpack. Here is the full description of the product. Here is the full description of the product. Here is the full description of the product.",
+        size: 'L',
+        category: 'Backpacks',
         quantity: 5,
         img: 'assets/images/products/amcrest-backpack.webp'
       },
@@ -34,6 +38,10 @@ export class DataService implements InMemoryDbService {
         id: '2',
         name: 'Smartphone',
         price: 250,
+        caption: "This is a caption for Smartphone",
+        description: "Here is the full description of the Smartphone. Here is the full description of the product. Here is the full description of the product. Here is the full description of the product.",
+        size: 'S',
+        category: 'Phones',
         quantity: 1,
         img: 'assets/images/products/smartphone.webp'
       },
@@ -41,6 +49,10 @@ export class DataService implements InMemoryDbService {
         id: '3',
         name: 'Smart watch',
         price: 100,
+        caption: "This is a caption for Smart watch",
+        description: "Here is the full description of the Smart watch. Here is the full description of the product. Here is the full description of the product. Here is the full description of the product.",
+        size: 'M',
+        category: 'Accessories',
         quantity: 3,
         img: 'assets/images/products/smartwatch.webp'
       },

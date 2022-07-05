@@ -11,7 +11,7 @@
         <p class="mt-1 text-lg font-medium text-gray-900">{{ product.price }} RON</p>
       </div>
     </a>
-    <p class="mb-3 text-gray-500">Caption</p>
+    <p class="mb-3 text-gray-500">{{ product.caption }}</p>
   </div>
   <div class="flex justify-between pt-0 pb-5 px-3">
     <app-button color="primary" icon="fa-solid fa-shopping-cart" (click)="addToCart(product)">Cart</app-button>
