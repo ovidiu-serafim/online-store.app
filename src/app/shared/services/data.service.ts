@@ -31,7 +31,7 @@ export class DataService implements InMemoryDbService {
         description: "Here is the full description of the Backpack. Here is the full description of the product. Here is the full description of the product. Here is the full description of the product.",
         size: 'L',
         category: 'Backpacks',
-        quantity: 5,
+        quantity: 1,
         img: 'assets/images/products/amcrest-backpack.webp'
       },
       {
@@ -53,7 +53,7 @@ export class DataService implements InMemoryDbService {
         description: "Here is the full description of the Smart watch. Here is the full description of the product. Here is the full description of the product. Here is the full description of the product.",
         size: 'M',
         category: 'Accessories',
-        quantity: 3,
+        quantity: 1,
         img: 'assets/images/products/smartwatch.webp'
       },
     ];

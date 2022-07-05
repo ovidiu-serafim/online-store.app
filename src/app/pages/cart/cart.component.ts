@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
-import {ProductState} from "../../redux/product/product.reducer";
 import { Product } from "../../shared/models/product";
 import * as CartSelectors from '../../redux/cart/cart.selectors';
 import * as CartActions from '../../redux/cart/cart.actions';
@@ -30,7 +29,24 @@ export class CartComponent implements OnInit {
       .reduce((totalPrice, price) => totalPrice + price, 0);
   }
 
+  getProductPrice(product: Product): number {
+    let productQuantity = product.quantity;
+    if(productQuantity < 1){
+      productQuantity = 1;
+    }
+
+    return product.price * productQuantity;
+  }
+
   setOrderNote(): void {
     this.isActiveOrderNote = !this.isActiveOrderNote;
+  }
+
+  onIncrement(productId: string): void {
+    this.store.dispatch(CartActions.incrementProductQuantity({ productId }));
+  }
+
+  onDecrement(productId: string): void {
+    this.store.dispatch(CartActions.decrementProductQuantity({ productId }));
   }
 }

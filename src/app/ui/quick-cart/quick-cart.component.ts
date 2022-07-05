@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Product {
-  name: string;
-  price: number;
-  quantity: number;
-  img: string;
-}
+import { Product } from "../../shared/models/product";
+import * as ProductActions from "../../redux/product/product.actions";
+import * as ProductSelectors from "../../redux/product/product.selectors";
+import {Store} from "@ngrx/store";
+import {CartState} from "../../redux/cart/cart.reducer";
 
 @Component({
   selector: 'app-quick-cart',
@@ -15,29 +13,11 @@ interface Product {
 export class QuickCartComponent implements OnInit {
   products: Product[] = [];
 
-  constructor() { }
+  constructor(private store: Store<CartState>) { }
 
   ngOnInit(): void {
-    this.products.push(
-      {
-        name: 'Backpack',
-        price: 50,
-        quantity: 5,
-        img: 'assets/images/products/amcrest-backpack.webp'
-      },
-      {
-        name: 'Smartphone',
-        price: 250,
-        quantity: 1,
-        img: 'assets/images/products/smartphone.webp'
-      },
-      {
-        name: 'Smart watch',
-        price: 100,
-        quantity: 3,
-        img: 'assets/images/products/smartwatch.webp'
-      },
-    );
+    this.store.dispatch(ProductActions.requestList());
+    this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
   }
 
   getTotal(): number {
