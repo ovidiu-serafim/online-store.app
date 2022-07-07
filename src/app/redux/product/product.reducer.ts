@@ -9,11 +9,19 @@ export const productFeatureKey = 'product';
 export interface ProductState {
   products: Product[];
   isLoading: boolean;
+  filterQuery: string;
+  filterBy: string[];
+  sortKey: string;
 }
+
+//export const INITIAL_FILTER_KEY = { filterKey: '', query: '' };
 
 const initialState: ProductState = {
   products: [],
-  isLoading: false
+  isLoading: false,
+  filterQuery: '',
+  filterBy: [],
+  sortKey: '',
 }
 
 export const productReducer = createReducer(
@@ -34,5 +42,13 @@ export const productReducer = createReducer(
       type: RequestStatusType.ERROR,
       value: action.error
     })
-  }))
+  })),
+  on(ProductActions.setFilterBy, (state, action) => {
+    return {
+      ...state,
+      sortKey: '',
+      filterQuery: action.query,
+      filterBy: action.filters
+    };
+  }),
 );

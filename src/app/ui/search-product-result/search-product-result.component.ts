@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../shared/models/product";
 import {Store} from "@ngrx/store";
 import {ProductState} from "../../redux/product/product.reducer";
@@ -11,13 +11,12 @@ import * as ProductSelectors from "../../redux/product/product.selectors";
   styleUrls: ['./search-product-result.component.scss']
 })
 export class SearchProductResultComponent implements OnInit {
+  @Input()
   products: Product[] = [];
 
   constructor(private store: Store<ProductState>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(ProductActions.requestList());
-    this.store.select(ProductSelectors.getProducts).subscribe( products => this.products = products);
   }
 
 }

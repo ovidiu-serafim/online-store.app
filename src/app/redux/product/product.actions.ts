@@ -15,3 +15,8 @@ export const requestListFailure = createAction(
   ProductActionTypes.REQUEST_LIST_FAILURE,
   props<{ error: any }>()
 );
+
+export const setFilterBy = createAction(
+  ProductActionTypes.SET_FILTER_BY,
+  props<{filters: string[], query: string }>()
+);
