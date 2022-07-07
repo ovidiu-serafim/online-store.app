@@ -29,7 +29,6 @@ export class ProductCardComponent implements OnInit{
     let config = new MatDialogConfig();
     let dialogRef:MatDialogRef<QuickViewComponent> = this.dialog.open(QuickViewComponent, config);
     dialogRef.componentInstance.product = product;
-
   }
 
   addToCart(product: Product) {

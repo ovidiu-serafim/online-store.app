@@ -5,11 +5,14 @@
       <h2 class="font-bold">{{ product.name }}</h2>
       <p class="mt-1 text-lg font-medium text-gray-900">{{ product.price }} RON</p>
     </div>
-    <p class="">Here is the full description of the product. Here is the full description of the product. Here is the full description of the product. Here is the full description of the product.</p>
+    <p class="">{{ product.description }}</p>
     <app-size-selector></app-size-selector>
     <div class="flex justify-between mt-5">
-      <app-cart-quantity [quantity]="0"></app-cart-quantity>
-      <app-button (click)="closeDialog(); addToCart(product)" color="primary" icon="fa-solid fa-cart-shopping">Add to Cart</app-button>
+      <app-cart-quantity [quantity]="quantity" (didIncrement)="onIncrement()" (didDecrement)="onDecrement()">
+      </app-cart-quantity>
+      <app-button (click)="closeDialog(); addToCart(quickViewProduct)" color="primary" icon="fa-solid fa-cart-shopping">
+        Add to Cart
+      </app-button>
     </div>
   </div>
 </div>

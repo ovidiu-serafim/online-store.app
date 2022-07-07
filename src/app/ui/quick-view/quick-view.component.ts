@@ -10,16 +10,51 @@ import * as CartActions from '../../redux/cart/cart.actions';
   templateUrl: './quick-view.component.html',
   styleUrls: ['./quick-view.component.scss']
 })
-export class QuickViewComponent {
+export class QuickViewComponent implements OnInit{
   @Inject(MAT_DIALOG_DATA) product!: Product;
-
   @Output() submitClicked = new EventEmitter<any>();
+  quantity: number = 0;
+  quickViewProduct!: Product;
 
   constructor(public dialogRef: MatDialogRef<QuickViewComponent>,
-              private store: Store<CartState>) { }
+              private store: Store<CartState>) {}
+
+  ngOnInit() {
+    console.log(this.quantity);
+  }
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  onIncrement(){
+      this.quantity++;
+      this.quickViewProduct = {
+        id: this.product.id,
+        name: this.product.name,
+        price: this.product.price,
+        caption: this.product.caption,
+        description: this.product.description,
+        size: this.product.size,
+        category: this.product.category,
+        quantity: this.quantity,
+        img: this.product.img
+      }
+  }
+
+  onDecrement(){
+      this.quantity--;
+      this.quickViewProduct = {
+        id: this.product.id,
+        name: this.product.name,
+        price: this.product.price,
+        caption: this.product.caption,
+        description: this.product.description,
+        size: this.product.size,
+        category: this.product.category,
+        quantity: this.quantity,
+        img: this.product.img
+      }
   }
 
   addToCart(product: Product){

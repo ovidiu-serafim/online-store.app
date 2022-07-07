@@ -16,15 +16,15 @@
             <div class="flex-1 flex flex-col space-y-3">
                 <div class="flex-1">
                   <a href="#" class="text-primary-dark text-lg">{{ product.name }}</a>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto aspernatur dolor earum ipsam omnis.</p>
+                  <p>{{ product.caption }}</p>
                 </div>
                 <div class="flex gap-2">
-                  <app-cart-quantity [quantity]="product.quantity"></app-cart-quantity>
+                  <app-cart-quantity [quantity]="product.quantity" (didIncrement)="onIncrement(this.product.id)" (didDecrement)="onDecrement(this.product.id)"></app-cart-quantity>
                   <button type="button" class="text-xs uppercase text-secondary underline hover:no-underline">Update cart</button>
                   <button type="button" class="text-xs uppercase text-primary underline hover:no-underline" (click)="removeProduct(product)">Remove</button>
                 </div>
             </div>
-            <div class="font-bold text-base">{{ product.price }} RON</div>
+            <div class="font-bold text-base">{{ getProductPrice(product) }} RON</div>
           </div>
         </div>
       </div>

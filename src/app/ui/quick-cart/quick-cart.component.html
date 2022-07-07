@@ -14,7 +14,7 @@
             <div class="quick-cart__product">
                 <div class="quick-cart__product-name"><a href="#">{{ product.name }}</a></div>
                 <div class="quick-cart__product-price">{{ product.price }} RON</div>
-                <app-cart-quantity [quantity]="product.quantity"></app-cart-quantity>
+                <app-cart-quantity [product]="product"></app-cart-quantity>
             </div>
             <div class="quick-cart__product-remove-button">
               <button type="button"><i class="fa-solid fa-circle-xmark hover:bg-primary rounded-full"></i></button>
